@@ -17,7 +17,7 @@ class Join(APIView):
             return Response(serializer.data, status=201)
         
 class Username(APIView):
-    def get(self, request):
-        userinfo = MyUser.objects.all()
+    def get(self, username):
+        userinfo = MyUser.objects.all(username)
         serializer = UsernameSerializer(userinfo)
         return Response(serializer.data)
